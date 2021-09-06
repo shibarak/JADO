@@ -1,5 +1,4 @@
 from flask import Flask, render_template
-from flask_bootstrap import Bootstrap
 import requests
 import config
 import os
@@ -25,7 +24,6 @@ if not config.SECRET_KEY:
 else:
     app.config['SECRET_KEY'] = config.SECRET_KEY
 
-Bootstrap(app)
 
 
 def get_k_quote():
