@@ -51,16 +51,16 @@ def draw_meme(y_quote):
     q1 = None
     with Image.open(f"kanyodtemp{temp_no}.jpeg") as base:
         if len(y_quote) <= 30:
-            fnt = ImageFont.truetype("/app/impact.ttf", 60)
+            fnt = ImageFont.truetype("/app/Impact.ttf", 60)
         elif len(y_quote) <= 45:
-            fnt = ImageFont.truetype("/app/impact.ttf", 50)
+            fnt = ImageFont.truetype("/app/Impact.ttf", 50)
         elif len(y_quote) > 45:
-            fnt = ImageFont.truetype("/app/impact.ttf", 40)
+            fnt = ImageFont.truetype("/app/Impact.ttf", 40)
             q_list = y_quote.split(",")
             q1 = q_list[0] + ","
             q2 = q_list[1]
             if len(q1) > 50 or len(q2) > 50:
-                fnt = ImageFont.truetype("/app/impact.ttf", 30)
+                fnt = ImageFont.truetype("/app/Impact.ttf", 30)
         if q1:
             d1 = ImageDraw.Draw(base)
             d1.text((500, 100), text=q1, fill=(255, 255, 255), stroke_width=1, stroke_fill=(0, 0, 0), font=fnt, align="center", anchor="ms")
