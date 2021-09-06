@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JADO</title>
+
+ <!-- Bootstrap core CSS -->
+  <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
+    <!-- Bootstrap core JavaScript -->
+  <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js')}}"></script>
+
+   <!-- Custom Fonts for this page-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+
+
+</head>
+<body>
+  <div class="wrapper">
+    <div class="container">
+      <img class=title-img src="static/images/JADO.jpg">
+      <h2>A meme generator featuring the wisdom of Master Kanyod Weest</h2>
+      <div>
+        {% if meme: %}
+        <img class="meme" src="{{ meme }}">
+        <div>
+        <a type="button" class="load-new btn btn-ex-lg btn-outline-sw" href="{{ url_for('meme')}}">NEW MEME, LOAD</a>
+        </div>
+        {% else: %}
+        <video controls autoplay id="myVideo">
+           <source src="static/video/crawl2.webm"
+                type="video/webm">
+          <source src="static/video/crawl.mp4"
+                type="video/mp4">
+
+        Sorry, your browser doesn't support embedded videos.
+        </video>
+        <div>
+          <a id ="loadBtn" type="button" class="load-new btn btn-ex-lg btn-outline-sw" href="{{ url_for('meme')}}">MEME, LOAD</a>
+        </div>
+        <div>
+          <button id="skipBtn" class="btn btn-ex-lg btn-outline-sw">SKIP</button>
+        </div>
+
+        {% endif %}
+
+      </div>
+
+    </div>
+    <div class="push"></div>
+  </div>
+
+  <footer class="footer">
+    <p class="copyright text-muted">Copyright &copy; Jesse Schlaud {{ current_year }}</p>
+  </footer>
+</body>
+
+<script type='text/javascript'>
+     var lbut = document.getElementById("loadBtn");
+     var sbut = document.getElementById("skipBtn");
+     var vid = document.getElementById("myVideo");
+     sbut.onclick = function() {
+     vid.remove();
+     lbut.style.display = "inline-block"
+     sbut.style.display = "none"
+  };
+</script>
+<script type='text/javascript'>
+     var lbut = document.getElementById("loadBtn");
+     var sbut = document.getElementById("skipBtn");
+     var vid = document.getElementById("myVideo");
+
+     vid.onended = function() {
+     vid.remove();
+     lbut.style.display = "inline-block"
+     sbut.style.display = "none"
+
+  };
+</script>
+
+</html>

@@ -1,0 +1,111 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+h2 {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    color: #ffe81f;
+}
+
+.wrapper {
+  min-height: 100%;
+
+  /* Equal to height of footer */
+  /* But also accounting for potential margin-bottom of last child */
+  margin-bottom: -100px;
+}
+.footer,
+.push {
+  height: 100px;
+  text-align: center;
+  margin-top: 75px;
+}
+
+body {
+    background-color: black;
+}
+
+video {
+    width: 100%;
+    height: auto;
+}
+
+.meme {
+    width: 800px;
+    margin: 20px;
+
+}
+
+.btn {
+
+    -webkit-appearance: none;
+    font-family: 'PTSerif', serif;
+    border-radius: 0;
+    border-top: solid 1.5px;
+    border-bottom: solid 1.5px;
+    border-left: 0;
+    border-right: 0;
+
+
+}
+
+#loadBtn {
+    display: none;
+    margin: 150px;
+
+
+}
+
+.container {
+    text-align: center;
+}
+
+.load-new {
+    margin: 50px
+}
+
+.title-img {
+    width: 100%;
+}
+
+.btn-outline-sw {
+  color: #ffe81f;
+  border-color: #ffe81f;
+}
+
+.btn-outline-sw:hover {
+  color: #212529;
+  background-color: #ffe81f;
+  border-color: #ffe81f;
+}
+
+.btn-outline-sw:focus, .btn-outline-sw.focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.5);
+}
+
+.btn-outline-sw.disabled, .btn-outline-sw:disabled {
+  color: #ffc107;
+  background-color: transparent;
+}
+
+.btn-outline-sw:not(:disabled):not(.disabled):active, .btn-outline-sw:not(:disabled):not(.disabled).active,
+.show > .btn-outline-sw.dropdown-toggle {
+  color: #212529;
+  background-color: #ffe81f;
+  border-color: #ffe81f;
+}
+
+.btn-outline-sw:not(:disabled):not(.disabled):active:focus, .btn-outline-sw:not(:disabled):not(.disabled).active:focus,
+.show > .btn-outline-sw.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.5);
+}
+
+.btn-ex-lg, .btn-group-lg > .btn {
+  padding: 0 0.5rem;
+  font-size: 2.5rem;
+  line-height: 1.1;
+  border-radius: 0;
+}
+
