@@ -28,8 +28,8 @@
       <img class=title-img src="static/images/JADO.jpg">
       <h2>A meme generator featuring the wisdom of Master Kanyod Weest</h2>
       <div>
-        {% if meme: %}
-        <img class="meme" src="{{ meme }}">
+        {% if img_data: %}
+        <img class="meme" src="data:image/jpeg;base64,{{ img_data }}">
         <div>
         <a type="button" class="load-new btn btn-ex-lg btn-outline-sw" href="{{ url_for('meme')}}">NEW MEME, LOAD</a>
         </div>

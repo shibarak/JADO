@@ -5,6 +5,8 @@ import os
 from PIL import Image, ImageDraw, ImageFont
 import datetime
 from random import randint
+import io
+import base64
 
 YODA_URL = "https://api.funtranslations.com/translate/yoda.json"
 KANYE_URL = "https://api.kanye.rest/"
@@ -64,11 +66,14 @@ def draw_meme(y_quote):
             d1.text((500, 100), text=q1, fill=(255, 255, 255), stroke_width=1, stroke_fill=(0, 0, 0), font=fnt, align="center", anchor="ms")
             d2 = ImageDraw.Draw(base)
             d2.text((500, 600), text=q2, fill=(255, 255, 255), stroke_width=1, stroke_fill=(0, 0, 0), font=fnt, align="center", anchor="ms")
-            base.save("static/images/meme.jpg", "JPEG")
+
         else:
             d = ImageDraw.Draw(base)
             d.text((500, 100), text=y_quote, fill=(255, 255, 255), stroke_width=2, stroke_fill=(0, 0, 0), font=fnt, align="center", anchor="ms")
-            base.save("static/images/meme.jpg", "JPEG")
+        data = io.BytesIO()
+        base.save(data, "JPEG")
+        encoded_img_data = base64.b64encode(data.getvalue())
+        return encoded_img_data
 
 
 # for i in range(10):
@@ -105,9 +110,7 @@ def home():
 
 @app.route("/meme", methods=["GET", "POST"])
 def meme():
-    path = "static/images/meme.jpg"
-    if os.path.exists(path):
-        os.remove(path)
+
     k_quote = get_k_quote()
     y_quote = get_y_quote(k_quote)
 
@@ -115,9 +118,9 @@ def meme():
         k_quote = get_k_quote()
         y_quote = get_y_quote(k_quote)
 
-    draw_meme(y_quote)
+    img_data = draw_meme(y_quote)
 
-    return render_template("index.html", meme=path)
+    return render_template("index.html", img_data=img_data.decode('utf-8'))
 
 
 if __name__ == "__main__":
