@@ -4,6 +4,7 @@ import spacy
 import io
 import base64
 from random import randint
+import os
 
 
 YODA_URL = "https://api.funtranslations.com/translate/yoda.json"
@@ -14,6 +15,7 @@ TRUMP_URL = "https://api.tronalddump.io/random/quote"
 
 TRUMP_HEADER = {'Accept': 'application/hal+json'}
 FNT = ImageFont.truetype("Impact.ttf", 80)
+os.system("python -m spacy download en_core_web_sm")
 NLP = spacy.load("en_core_web_sm")
 
 
