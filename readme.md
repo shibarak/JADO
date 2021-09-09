@@ -1,5 +1,5 @@
-#The Jedi Academy Droput#
-##A website I created for the Udemy course "100 Days of Python"##
+# The Jedi Academy Droput
+## A website I created for the Udemy course "100 Days of Python"
 
 Things I Implemented: HTTP Requests, Public APIs, Flask, Pillow, spacy, HTML 5 video, a little javascript and css
 
